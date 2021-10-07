@@ -20,7 +20,7 @@ const isPalidrone = (num) => {
 };
 
 let a = 123454321;
-let b = 122221;
+let b = 'a122221a';
 let c = -12321;
 
 

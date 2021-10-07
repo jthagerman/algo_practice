@@ -31,3 +31,35 @@ Input: s = "{[]}"
 Output: true
 
 */
+
+const isValid = (str) => {
+    let dict = {
+        "{": "}",
+        "(": ")",
+        "[": "]",
+    };
+    let stack = [];
+
+    for (let i = 0; i < str.length; i++) {
+        let char = str[i];
+        if (dict[char]) stack.unshift(dict[char]);
+        else {
+            if (char === stack[0]) stack = stack.slice(1);
+            else return false;
+        }
+    }
+
+    return stack.length > 0 ? false : true
+};
+
+let a = "((()))";
+let b = "({})";
+let c = "({(})";
+let d = "{]";
+let e = "()[]{}";
+
+console.log(isValid(a));
+console.log(isValid(b));
+console.log(isValid(c));
+console.log(isValid(d));
+console.log(isValid(e));
