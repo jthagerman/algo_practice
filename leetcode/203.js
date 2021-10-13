@@ -35,12 +35,15 @@ const removeElements = (head, val) => {
     }
 
     let node = head;
-
-    while (node.next) {
-        if (node.next.val === val) {
-            node.next = node.next.next;
-        } else node = node.next;
+    if (node) {
+        while (node.next) {
+            if (node.next.val === val) {
+                node.next = node.next.next;
+            } else node = node.next;
+        }
     }
+
+    return head;
 };
 
 let a = new Node(1);
