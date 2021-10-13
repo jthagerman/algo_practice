@@ -102,3 +102,7 @@ printNicely(zeroMatrix(c));
 printNicely(zeroMatrix(d));
 printNicely(zeroMatrix(e));
 printNicely(zeroMatrix(f));
+
+
+
+//0(2n^2)

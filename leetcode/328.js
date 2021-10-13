@@ -31,7 +31,6 @@ Input: head = [2,1,3,5,6,4,7]
 Output: [2,3,6,7,1,5,4]
 */
 
-
 class Node {
     constructor(val = null, next = null) {
         this.val = val;
@@ -39,42 +38,36 @@ class Node {
     }
 }
 
-
 const oddEvenList = (head) => {
-    if(!head) return head
-    let odds = []
-    let evens = []
-    let counter = 1
-    
-    let node = head
-    while(node) {
-        (counter % 2) ? odds.push(node.val) : evens.push(node.val)
-        counter++
-        node = node.next
+    if (!head) return head;
+    let odds = [];
+    let evens = [];
+    let counter = 1;
+
+    let node = head;
+    while (node) {
+        counter % 2 ? odds.push(node.val) : evens.push(node.val);
+        counter++;
+        node = node.next;
     }
 
-    console.log(odds,"h",evens)
+    console.log(odds, "h", evens);
 
-    let node2 = head
-    let counter2 = 1
-    while(node2) {
-        if(counter2 % 2){
-            node.val = odds[0]
-            odds.slice(1)
+    let node2 = head;
 
-        }else{
-            node.val = evens[0]
-            evens.slice(1)
+    while (node2) {
+        if (odds.length) {
+            node2.val = odds[0];
+            odds = odds.slice(1);
+        } else {
+            node2.val = evens[0];
+            odds = evens.slice(1);
+        }
 
-        } 
-        counter2++
-        node = node.next
- 
-
-
+        node2 = node2.next;
     }
-    
-}
+    return head;
+};
 
 let a = new Node(1);
 let b = new Node(2);
@@ -85,5 +78,4 @@ a.next = b;
 b.next = c;
 c.next = d;
 
-
-console.log(oddEvenList(a))
+console.log(oddEvenList(a));
