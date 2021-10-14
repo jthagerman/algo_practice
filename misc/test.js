@@ -10,3 +10,9 @@ console.log(a)
 
 a.splice(3,1)
 console.log(a)
+
+
+if(true) {
+    var soy = "hello"
+}
+console.log(soy)
