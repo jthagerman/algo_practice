@@ -22,14 +22,17 @@ Constraints:
  */
 
 
-const moveZeros = (nums) => {
+var moveZeroes = function(nums) {
     let index = 0
+    let backIndex = nums.length -1
 
-    while(index < nums.length){
+    while(index < backIndex){
         if(nums[index] === 0){
             nums.splice(index,1)
             nums.push(0)
+            backIndex--                    
+        }else{
+            index++
         }
-        index++
-    }
-}
+    }  
+};

@@ -21,50 +21,28 @@ nums[i] is either 0 or 1.
 */
 
 const findMaxConsecutiveOnes = (nums) => {
-    let length = 0
-    let front = 0
-    let back = 0
-    let numOfZeroes=0
+    let length = 0;
+    let front = 0;
+    let back = 0;
+    let numOfZeroes = 0;
 
-
-    while(back < nums.length) {
-
-        if(nums[back] === 0) numOfZeroes+=1
-        if(numOfZeroes === 2) {
-            console.log("there are two zeros",front,back,numOfZeroes)
-            while(numOfZeroes >= 2){
-                console.log("current front", numOfZeroes, "val", nums[front], "index",front)
-                if(nums[front] === 0) {
-                    numOfZeroes = numOfZeroes - 1
-                    console.log("i am bringing down the number of zeros ",numOfZeroes)
-                   
-                }
-                if(front < back){
-                    front++
-                }
-                else{
-                    back++
-                }
-         
-
-
+    while (back < nums.length) {
+        if (nums[back] === 0) numOfZeroes += 1;
+        if (numOfZeroes === 2) {
+            while (numOfZeroes >= 2) {
+                if (nums[front] === 0) numOfZeroes = numOfZeroes - 1;
+                if (front < back) front++;
+                else back++;
             }
-            back++
-            console.log("left while loop",numOfZeroes,front,back)
-
+            back++;
+        } else {
+            if (back - front + 1 > length) length = back - front + 1;
+            back++;
         }
-        else{
-            console.log("the number of zeros are", numOfZeroes, front, back)
-            if((back-front + 1 ) > length) length = back - front + 1
-            back++
-        }
-
-        
-
     }
-    return length
-}
+    return length;
+};
 
-let a = [1,0,2,0,1,0,1,3,2,2,4,3,2,4,2,4,2,4,2,4,2]
+let a = [1, 0, 2, 0, 1, 0, 1, 3, 2, 2, 4, 3, 2, 4, 2, 4, 2, 4, 2, 4, 2];
 
-console.log(findMaxConsecutiveOnes(a))
+console.log(findMaxConsecutiveOnes(a));
